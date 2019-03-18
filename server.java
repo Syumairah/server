@@ -1,12 +1,12 @@
 import java.net.*;
 import java.io.*;
 
-public class SimpleServer.java extends Thread
+public class SimpleServer extends Thread
 {
    private ServerSocket serverSocket;
    String clientmsg = "";
 
-   public SimpleServer.java (int port) throws IOException
+   public SimpleServer (int port) throws IOException
    {
       serverSocket = new ServerSocket(port);
       serverSocket.setSoTimeout(10000);
@@ -47,7 +47,7 @@ public class SimpleServer.java extends Thread
         int port = Integer.parseInt(args[0]);
         try
         {
-            Thread t = new SimpleServer.java(port);
+            Thread t = new SimpleServer(port);
             t.start();
         }
 
