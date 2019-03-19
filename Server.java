@@ -1,12 +1,12 @@
 import java.net.*;
 import java.io.*;
 
-public class Server extends Thread
+public class SimpleServer extends Thread
 {
    private ServerSocket serverSocket;
    String clientmsg = "";
 
-   public SimpleServer (int port) throws IOException
+   public Server(int port) throws IOException
    {
       serverSocket = new ServerSocket(port);
       serverSocket.setSoTimeout(10000);
