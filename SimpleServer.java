@@ -56,6 +56,6 @@ public class SimpleServer
   
     public static void main(String args[]) 
     { 
-        Server server = new Server(5000); 
+        SimpleServer server = new Server(5000); 
     } 
 } 
