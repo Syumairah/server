@@ -1,7 +1,7 @@
 import java.net.*;
 import java.io.*;
 
-public class SimpleServer extends Thread
+class SimpleServer extends Thread
 {
    private ServerSocket serverSocket;
    String clientmsg = "";
