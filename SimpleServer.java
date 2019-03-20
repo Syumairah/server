@@ -1,25 +1,26 @@
 import java.net.*; 
 import java.io.*; 
   
-public class SimpleServer 
+public class Server 
 { 
     //initialize socket and input stream 
     private Socket          socket   = null; 
     private ServerSocket    server   = null; 
-    private DataInputStream in =  null; 
-    private DataOutputStream out = null;
+    private DataInputStream in       =  null; 
   
     // constructor with port 
-    public SimpleServer (int port) 
+    public Server(int port) 
     { 
         // starts server and waits for a connection 
         try
         { 
             server = new ServerSocket(port); 
-            System.out.println("Server started and waiting for a client to response ...");  
+            System.out.println("Server started"); 
+  
+            System.out.println("Wait for client to response . . . "); 
   
             socket = server.accept(); 
-            System.out.println("Client accepted"); 
+            System.out.println("Congratulations! client is accepted and annyeong!)"); 
   
             // takes input from the client socket 
             in = new DataInputStream( 
@@ -42,13 +43,6 @@ public class SimpleServer
                 } 
             } 
             System.out.println("Closing connection"); 
-          
-          //Sending response back to the client
-          OutputStream os = socket.getOutputStream();
-          OutputStreamWriter osw = new OutputStreamWriter(os);
-          BufferedWriter bw = new BufferedWriter(osw);
-          System.out.println ("Message sent to the client is "+server.accept());
-          bw.flush();
   
             // close connection 
             socket.close(); 
@@ -62,6 +56,6 @@ public class SimpleServer
   
     public static void main(String args[]) 
     { 
-        SimpleServer server = new SimpleServer(5000); 
+        Server server = new Server(5132); 
     } 
 } 
