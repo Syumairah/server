@@ -1,7 +1,7 @@
 import java.net.*; 
 import java.io.*; 
   
-public class Server 
+public class SimpleServer 
 { 
     //initialize socket and input stream 
     private Socket          socket   = null; 
@@ -56,6 +56,6 @@ public class Server
   
     public static void main(String args[]) 
     { 
-        Server server = new Server(5132); 
+        SimpleServer server = new SimpleServer(5132); 
     } 
 } 
