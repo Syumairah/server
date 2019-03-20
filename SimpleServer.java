@@ -17,7 +17,7 @@ public class SimpleServer
             server = new ServerSocket(port); 
             System.out.println("Server started"); 
   
-            System.out.println("Waiting for a client ..."); 
+            System.out.println("Waiting for a client to response ..."); 
   
             socket = server.accept(); 
             System.out.println("Client accepted"); 
