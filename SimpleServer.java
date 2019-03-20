@@ -47,7 +47,6 @@ public class SimpleServer
           OutputStream os = socket.getOutputStream();
           OutputStreamWriter osw = new OutputStreamWriter(os);
           BufferedWriter bw = new BufferedWriter(osw);
-          bw.write(server.accept());
           System.out.println ("Message sent to the client is "+server.accept());
           bw.flush();
   
