@@ -7,6 +7,7 @@ public class SimpleServer
     private Socket          socket   = null; 
     private ServerSocket    server   = null; 
     private DataInputStream in =  null; 
+    private DataOutputStream out = null;
   
     // constructor with port 
     public SimpleServer (int port) 
@@ -15,9 +16,7 @@ public class SimpleServer
         try
         { 
             server = new ServerSocket(port); 
-            System.out.println("Server started"); 
-  
-            System.out.println("Waiting for a client to response ..."); 
+            System.out.println("Server started and waiting for a client to response ...");  
   
             socket = server.accept(); 
             System.out.println("Client accepted"); 
@@ -43,6 +42,14 @@ public class SimpleServer
                 } 
             } 
             System.out.println("Closing connection"); 
+          
+          //Sending response back to the client
+          OutputStream os = socket.getOutputStream();
+          OutputStreamWriter osw = new OutputStreamWriter(os);
+          BufferedWriter bw = new BufferedWriter(osw);
+          bw.write(returnMessage);
+          System.out.println ("Message sent to the client is "+returnMessage);
+          bw.flush();
   
             // close connection 
             socket.close(); 
