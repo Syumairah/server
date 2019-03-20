@@ -9,7 +9,7 @@ public class SimpleServer
     private DataInputStream in       =  null; 
   
     // constructor with port 
-    public Server(int port) 
+    public SimpleServer(int port) 
     { 
         // starts server and waits for a connection 
         try
