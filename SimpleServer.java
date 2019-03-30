@@ -8,15 +8,14 @@ public class SimpleServer
     public static void main (String[]args) throws IOException
     { 
             ServerSocket Simple = new ServerSocket(5132); 
-          
-            System.out.println("Server started wait for client to response . . .");
-  
             Socket S = Simple.accept(); 
-            System.out.println("Client is accepted and annyeong!)"); 
+      
+            System.out.println("Client is acepted and annyeong!");
+ 
   
             // takes input from the client socket 
-            in gt = new DataInputStream(S.getInputStream()); 
-            BufferedReader ot = new BufferedReader (gt);
+            InputStreamReader gt = new InputStreamReader(S.getInputStream()); 
+            BufferedReader ot = new BufferedReader(gt);
   
             PrintWriter rp = new PrintWriter (S.getOutputStream());
             rp.printIn ("Congratulations!");
