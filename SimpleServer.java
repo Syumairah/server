@@ -2,61 +2,29 @@ import java.net.*;
 import java.io.*; 
   
 public class SimpleServer 
-{ 
-    //initialize socket and input stream 
-    private Socket          socket   = null; 
-    private ServerSocket    server   = null; 
-    private DataInputStream in       =  null; 
+{
   
     // constructor with port 
-    public SimpleServer(int port) 
+    public static void main (String[]args) throws IOException
     { 
-        // starts server and waits for a connection 
-        try
-        { 
             ServerSocket Simple = new ServerSocket(5132); 
           
-            System.out.println("Server started"); 
-  
-            System.out.println("Wait for client to response . . . "); 
+            System.out.println("Server started wait for client to response . . .");
   
             Socket S = Simple.accept(); 
-            System.out.println("Congratulations! client is accepted and annyeong!)"); 
+            System.out.println("Client is accepted and annyeong!)"); 
   
             // takes input from the client socket 
-            in = new DataInputStream( 
-                new BufferedInputStream(socket.getInputStream())); 
+            in gt = new DataInputStream(S.getInputStream()); 
+            BufferedReader ot = new BufferedReader (gt);
   
-            String line = ""; 
-  
-            // reads message from client until "Over" is sent 
-            while (!line.equals("Over")) 
-            { 
-                try
-                { 
-                    line = in.readUTF(); 
-                    System.out.println(line); 
-  
-                } 
-                catch(IOException i) 
-                { 
-                    System.out.println(i); 
-                } 
-            } 
-            System.out.println("Closing connection"); 
-  
-            // close connection 
-            socket.close(); 
-            in.close(); 
-        } 
-        catch(IOException i) 
-        { 
-            System.out.println(i); 
-        } 
+            PrintWriter rp = new PrintWriter (S.getOutputStream());
+            rp.printIn ("Congratulations!");
+            rp.flush();
+      
+            String rcvr = ot.readLine();
+            System.out.println ("Client", recvr);
+      
+      
     } 
-  
-    public static void main(String args[]) 
-    { 
-        SimpleServer server = new SimpleServer(5132); 
-    } 
-} 
+   }
