@@ -14,12 +14,13 @@ public class SimpleServer
         // starts server and waits for a connection 
         try
         { 
-            server = new ServerSocket(port); 
+            ServerSocket Simple = new ServerSocket(5132); 
+          
             System.out.println("Server started"); 
   
             System.out.println("Wait for client to response . . . "); 
   
-            socket = server.accept(); 
+            Socket S = Simple.accept(); 
             System.out.println("Congratulations! client is accepted and annyeong!)"); 
   
             // takes input from the client socket 
