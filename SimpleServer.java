@@ -1,33 +1,61 @@
 import java.net.*; 
-import java.io.*;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*; 
   
 public class SimpleServer 
-{
+{ 
+    //initialize socket and input stream 
+    private Socket          socket   = null; 
+    private ServerSocket    server   = null; 
+    private DataInputStream in       =  null; 
   
     // constructor with port 
-    public static void main (String[]args) throws IOException
+    public SmpleServer(int port) 
     { 
-            ServerSocket Simple = new ServerSocket(5132); 
-            Socket S = Simple.accept(); 
-      
-            System.out.println("Client is accepted and annyeong!");
- 
+        // starts server and waits for a connection 
+        try
+        { 
+            server = new ServerSocket(5132); 
+            System.out.println("Server started"); 
+  
+            System.out.println("Waiting for a client to response ..."); 
+  
+            socket = server.accept(); 
+            System.out.println("Congratulations! client is accepted and annyeong!"); 
   
             // takes input from the client socket 
-            InputStreamReader gt = new InputStreamReader(S.getInputStream()); 
-            BufferedReader ot = new BufferedReader(gt);
+            in = new DataInputStream( 
+                new BufferedInputStream(socket.getInputStream())); 
   
-            PrintWriter rp = new PrintWriter(S.getOutputStream());
-            rp.println ("Congratulations!");
-            rp.flush();
-      
-            String receiver = ot.readLine();
-            System.out.println ("Client");
-            System.out.println ("receiver");
-      
-      
+            String line = ""; 
+  
+            // reads message from client until "Over" is sent 
+            while (!line.equals("Over")) 
+            { 
+                try
+                { 
+                    line = in.readUTF(); 
+                    System.out.println(line); 
+  
+                } 
+                catch(IOException i) 
+                { 
+                    System.out.println(i); 
+                } 
+            } 
+            System.out.println("Closing connection"); 
+  
+            // close connection 
+            socket.close(); 
+            in.close(); 
+        } 
+        catch(IOException i) 
+        { 
+            System.out.println(i); 
+        } 
     } 
-   }
+  
+    public static void main(String args[]) 
+    { 
+        SimpleServer server = new SimpleServer(5132); 
+    } 
+} 
