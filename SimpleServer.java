@@ -1,5 +1,8 @@
 import java.net.*; 
-import java.io.*; 
+import java.io.*;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
   
 public class SimpleServer 
 {
@@ -22,7 +25,8 @@ public class SimpleServer
             rp.flush();
       
             String receiver = ot.readLine();
-            System.out.println ("Client", receiver);
+            System.out.println ("Client");
+            System.out.println ("receiver");
       
       
     } 
