@@ -18,8 +18,8 @@ public class SimpleServer
             BufferedReader ot = new BufferedReader(gt);
   
             PrintWriter rp = new PrintWriter(S.getOutputStream());
-            ot.println ("Congratulations!");
-            ot.flush();
+            rp.println ("Congratulations!");
+            rp.flush();
       
             String receiver = ot.readLine();
             System.out.println ("Client", receiver);
