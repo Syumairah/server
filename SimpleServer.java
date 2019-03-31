@@ -10,14 +10,14 @@ public class SimpleServer
             ServerSocket Simple = new ServerSocket(5132); 
             Socket S = Simple.accept(); 
       
-            System.out.println("Client is acepted and annyeong!");
+            System.out.println("Client is accepted and annyeong!");
  
   
             // takes input from the client socket 
             InputStreamReader gt = new InputStreamReader(S.getInputStream()); 
             BufferedReader ot = new BufferedReader(gt);
   
-            PrintWriter rp = new PrintWriter (S.getOutputStream());
+            PrintWriter rp = new PrintWriter(S.getOutputStream());
             rp.printIn ("Congratulations!");
             rp.flush();
       
