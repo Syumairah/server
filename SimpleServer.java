@@ -18,11 +18,11 @@ public class SimpleServer
             BufferedReader ot = new BufferedReader(gt);
   
             PrintWriter rp = new PrintWriter(S.getOutputStream());
-            rp.println ("Congratulations!");
-            rp.flush();
+            ot.println ("Congratulations!");
+            ot.flush();
       
-            String rcvr = ot.readLine();
-            System.out.println ("Client", recvr);
+            String receiver = ot.readLine();
+            System.out.println ("Client", receiver);
       
       
     } 
